@@ -12,7 +12,7 @@ public class Transaction {
     private LocalTime time;
     private String description;
     private String vendor;
-    private double price;
+    private double amount;
 
     /*--------------CONSTRUCTORS-------------*/
 
@@ -21,7 +21,7 @@ public class Transaction {
         this.time = time;
         this.description = description;
         this.vendor = vendor;
-        this.price = price;
+        this.amount = price;
     }
 
     /*------------GETTERS/SETTERS------------*/
@@ -58,12 +58,12 @@ public class Transaction {
         this.vendor = vendor;
     }
 
-    public double getPrice() {
-        return price;
+    public double getAmount() {
+        return amount;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
     /*---------------FUNCTIONS---------------*/
@@ -75,7 +75,7 @@ public class Transaction {
                 ", time=" + time +
                 ", description='" + description + '\'' +
                 ", vendor='" + vendor + '\'' +
-                ", price=" + price +
+                ", amount=" + amount +
                 '}';
     }
 }

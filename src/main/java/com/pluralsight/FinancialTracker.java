@@ -11,7 +11,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class FinancialTracker {
@@ -105,18 +104,14 @@ public class FinancialTracker {
 
 
     private static void addDeposit(Scanner scanner) {
-        // This method should prompt the user to enter the date, time, vendor, and amount of a deposit.
-        // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
-        // The amount should be a positive number.
-        // After validating the input, a new `Deposit` object should be created with the entered values.
-        // The new deposit should be added to the `transactions` ArrayList.
+        //  added the deposit and made the minimum 0.01 cent
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FILE_NAME, true));
-            System.out.print("Please add the date of the deposit (Example: 2023-03-14): ");
+            System.out.print("Please add the date of the deposit (Example: 2023-10-23): ");
             String input = scanner.nextLine();
             LocalDate date = LocalDate.parse(input, DATE_FORMATTER);
 
-            System.out.print("Please add the time of the deposit (Example: 14:12:55): ");
+            System.out.print("Please add the time of the deposit (Example: 12:24:42): ");
             input = scanner.nextLine();
             LocalTime time = LocalTime.parse(input, TIME_FORMATTER);
 
@@ -126,13 +121,13 @@ public class FinancialTracker {
             System.out.print("Please enter the amount of the deposit: $");
             double depositAmount = scanner.nextDouble();
             scanner.nextLine();
-            if (depositAmount <= 0) {
+            if (depositAmount <= 0.01) {
                 System.out.println("ERROR: Deposit must be positive! Defaulting to $1...");
                 depositAmount = 1.0;
             }
             Transaction deposit = new Transaction(date, time, "Deposit", vendor, depositAmount);
             transactions.add(deposit);
-            String output = "\n" + deposit.getDate() + "|" + deposit.getTime() + "|" + deposit.getDescription() + "|" + deposit.getVendor() + "|" + deposit.getPrice();
+            String output = "\n" + deposit.getDate() + "|" + deposit.getTime() + "|" + deposit.getDescription() + "|" + deposit.getVendor() + "|" + deposit.getAmount();
             bufferedWriter.write(output);
             bufferedWriter.close();
         } catch (DateTimeParseException e) {
@@ -175,10 +170,11 @@ public class FinancialTracker {
             }
             Transaction payment = new Transaction(date, time, "Payment", vendor, paymentAmount * -1);
             transactions.add(payment);
-            String output = "\n" + payment.getDate() + "|" + payment.getTime() + "|" + payment.getDescription() + "|" + payment.getVendor() + "|" + payment.getPrice();
+            String output = "\n" + payment.getDate() + "|" + payment.getTime() + "|" + payment.getDescription() + "|" + payment.getVendor() + "|" + payment.getAmount();
             bufferedWriter.write(output);
             bufferedWriter.close();
         } catch (DateTimeParseException e) {
+
             System.out.println("ERROR: Could not parse date/time!");
         } catch (IOException e) {
             System.out.println("ERROR: Could not instantiate writer!");
@@ -236,7 +232,7 @@ public class FinancialTracker {
         ArrayList<Transaction> found = new ArrayList<>();
         for (Transaction transaction : transactions) {
 
-            if (transaction.getPrice() >= 0) {
+            if (transaction.getAmount() >= 0) {
                 found.add(transaction);
             }
         }
@@ -255,7 +251,7 @@ public class FinancialTracker {
         ArrayList<Transaction> found = new ArrayList<>();
         for (Transaction transaction : transactions) {
 
-            if (transaction.getPrice() <= 0) {
+            if (transaction.getAmount() <= 0) {
                 found.add(transaction);
             }
         }
@@ -286,19 +282,34 @@ public class FinancialTracker {
                 case "1":
                     // Generate a report for all transactions within the current month,
                     // including the date, vendor, and amount for each transaction.
+                    LocalDate thisMonth = LocalDate.now();
+                    System.out.println("Displaying all transactions for the month of "  + thisMonth.getMonth() );
+                    filterTransactionsByDate(thisMonth.withDayOfMonth(1), thisMonth);
                 case "2":
                     // Generate a report for all transactions within the previous month,
                     // including the date, vendor, and amount for each transaction.
+                    LocalDate lastMonth = LocalDate.now().minusMonths(1);
+                    System.out.println("Displaying all transactions for the month of "  + lastMonth.getMonth() );
+                    filterTransactionsByDate(lastMonth.withDayOfMonth(1), lastMonth.withDayOfMonth(lastMonth.lengthOfMonth()));
                 case "3":
                     // Generate a report for all transactions within the current year,
                     // including the date, vendor, and amount for each transaction.
+                    LocalDate thisYear = LocalDate.now();
+                    System.out.println("Displaying all transactions for the year of " + thisYear.getYear() + " so far:");
+                    filterTransactionsByDate(thisYear.withDayOfYear(1), thisYear);
 
                 case "4":
                     // Generate a report for all transactions within the previous year,
                     // including the date, vendor, and amount for each transaction.
+                    LocalDate lastYear = LocalDate.now().minusYears(1);
+                    System.out.println("Displaying all transactions for the year of " + lastYear.getYear() +  ":");
+                    filterTransactionsByDate(lastYear.withMonth(1).withDayOfMonth(1), lastYear.withMonth(12).withDayOfMonth(31));
                 case "5":
                     // Prompt the user to enter a vendor name, then generate a report for all transactions
                     // with that vendor, including the date, vendor, and amount for each transaction.
+                    System.out.print("Please type the name of the vendor you would like to check for: ");
+                    String vendorName = scanner.nextLine().trim();
+                    filterTransactionsByVendor(vendorName);
                 case "0":
                     running = false;
                 default:
