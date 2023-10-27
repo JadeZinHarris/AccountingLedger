@@ -13,8 +13,9 @@ Most difficult part for me to change the colors. Like, just finding a purple pro
 
 𝕄𝕒𝕚𝕟 𝕄𝕖𝕟𝕦
 
-![Image1.png](../../../../../Image1.png)
+![Image1.png](Image1.png)
 
 𝓛𝓮𝓭𝓰𝓮𝓻
-![Image2.png](../../../../../Image2.png)
+
+![Image2.png](Image2.png)
 
