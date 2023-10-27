@@ -10,7 +10,7 @@ When looking at reports you have several options
 
 
 Most difficult part for me was to make the reports. I was trying my hardest to figure it out.
-![](C:\Users\Jadal\OneDrive\Desktop\pluarsight\Capstones\AccountingLedger\image1.jpg)
+![](C:\Users\Jadal\OneDrive\Desktop\pluarsight\Capstones\AccountingLedger\Screenshots\image1.jpg)
 
 
 
