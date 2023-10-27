@@ -31,7 +31,7 @@ public class FinancialTracker {
             System.out.println("Welcome to TransactionApp");
             System.out.println("Choose an option:");
             System.out.println("D) Add Deposit");
-            System.out.println("P) Make Payment (Debit)");
+            System.out.println("P) Make Payment ");
             System.out.println("L) Ledger");
             System.out.println("X) Exit");
 
@@ -279,18 +279,21 @@ public class FinancialTracker {
                     LocalDate thisMonth = LocalDate.now();
                     System.out.println("Displaying all transactions for the month of "  + thisMonth.getMonth() );
                     filterTransactionsByDate(thisMonth.withDayOfMonth(1), thisMonth);
+                    break;
                 case "2":
                     // Generate a report for all transactions within the previous month,
                     // including the date, vendor, and amount for each transaction.
                     LocalDate lastMonth = LocalDate.now().minusMonths(1);
                     System.out.println("Displaying all transactions for the month of "  + lastMonth.getMonth() );
                     filterTransactionsByDate(lastMonth.withDayOfMonth(1), lastMonth.withDayOfMonth(lastMonth.lengthOfMonth()));
+                    break;
                 case "3":
                     // Generate a report for all transactions within the current year,
                     // including the date, vendor, and amount for each transaction.
                     LocalDate thisYear = LocalDate.now();
                     System.out.println("Displaying all transactions for the year of " + thisYear.getYear() + " so far:");
                     filterTransactionsByDate(thisYear.withDayOfYear(1), thisYear);
+                    break;
 
                 case "4":
                     // Generate a report for all transactions within the previous year,
@@ -298,14 +301,20 @@ public class FinancialTracker {
                     LocalDate lastYear = LocalDate.now().minusYears(1);
                     System.out.println("Displaying all transactions for the year of " + lastYear.getYear() +  ":");
                     filterTransactionsByDate(lastYear.withMonth(1).withDayOfMonth(1), lastYear.withMonth(12).withDayOfMonth(31));
+                    break;
+
                 case "5":
                     // Prompt the user to enter a vendor name, then generate a report for all transactions
                     // with that vendor, including the date, vendor, and amount for each transaction.
                     System.out.print("Please type the name of the vendor you would like to check for: ");
                     String vendorName = scanner.nextLine().trim();
                     filterTransactionsByVendor(vendorName);
+                    break;
+
                 case "0":
                     running = false;
+                    break;
+
                 default:
                     System.out.println("Invalid option");
                     break;
