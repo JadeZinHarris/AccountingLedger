@@ -94,11 +94,11 @@ public class FinancialTracker {
             }
             bufferedReader.close();
         } catch (IOException e) {
-            System.out.println("ERROR: Could not create reader!");
+            System.out.println("Could not create reader.");
         } catch (DateTimeParseException e) {
-            System.out.println("ERROR: Could not parse date/time!");
+            System.out.println(" Could not add date/time");
         } catch (Exception e) {
-            System.out.println("ERROR: Could not load inventory!");
+            System.out.println("Could not load inventory.");
         }
     }
 
@@ -131,11 +131,11 @@ public class FinancialTracker {
             bufferedWriter.write(output);
             bufferedWriter.close();
         } catch (DateTimeParseException e) {
-            System.out.println("ERROR: Could not parse date/time!");
+            System.out.println("Could not add date/time!");
         } catch (IOException e) {
-            System.out.println("ERROR: Could not instantiate writer!");
+            System.out.println(" Could not start writer!");
         } catch (Exception e) {
-            System.out.println("ERROR: Unspecified issue with adding deposit!");
+            System.out.println("Issue with adding deposit!");
         }
 
     }
@@ -143,18 +143,14 @@ public class FinancialTracker {
 
 
     private static void addPayment(Scanner scanner) {
-        // This method should prompt the user to enter the date, time, vendor, and amount of a payment.
-        // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
-        // The amount should be a positive number.
-        // After validating the input, a new `Payment` object should be created with the entered values.
-        // The new payment should be added to the `transactions` ArrayList.
+
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FILE_NAME, true));
-            System.out.print("Please add the date of the payment (Example: 2023-03-14): ");
+            System.out.print("Please add the date of the payment (Example: 2023-10-23): ");
             String input = scanner.nextLine();
             LocalDate date = LocalDate.parse(input, DATE_FORMATTER);
 
-            System.out.print("Please add the time of the payment (Example: 14:12:55): ");
+            System.out.print("Please add the time of the payment (Example: 10:12:25): ");
             input = scanner.nextLine();
             LocalTime time = LocalTime.parse(input, TIME_FORMATTER);
 
@@ -165,7 +161,7 @@ public class FinancialTracker {
             double paymentAmount = scanner.nextDouble();
             scanner.nextLine();
             if (paymentAmount <= 0) {
-                System.out.println("ERROR: Payment must be positive! Defaulting to $1...");
+                System.out.println("Payment must be positive.");
                 paymentAmount = 1.0;
             }
             Transaction payment = new Transaction(date, time, "Payment", vendor, paymentAmount * -1);
@@ -175,11 +171,11 @@ public class FinancialTracker {
             bufferedWriter.close();
         } catch (DateTimeParseException e) {
 
-            System.out.println("ERROR: Could not parse date/time!");
+            System.out.println("ERROR: Could not add date/time.");
         } catch (IOException e) {
-            System.out.println("ERROR: Could not instantiate writer!");
+            System.out.println("ERROR: Could not start writer.");
         } catch (Exception e) {
-            System.out.println("ERROR: Unspecified issue with adding deposit! Check formatting of inputs!");
+            System.out.println("Issue with adding deposit! ");
         }
     }
 
@@ -227,8 +223,7 @@ public class FinancialTracker {
     }
 
     private static void displayDeposits() {
-        // This method should display a table of all deposits in the `transactions` ArrayList.
-        // The table should have columns for date, time, vendor, and amount.
+       // THis should display all the deposits made
         ArrayList<Transaction> found = new ArrayList<>();
         for (Transaction transaction : transactions) {
 
@@ -237,7 +232,7 @@ public class FinancialTracker {
             }
         }
         if (found.isEmpty()) {
-            System.out.println("ERROR: No deposits found!");
+            System.out.println(" No deposits found!");
         } else {
             for (Transaction transaction : found) {
                 System.out.println(transaction);
@@ -246,8 +241,7 @@ public class FinancialTracker {
     }
 
     private static void displayPayments() {
-        // This method should display a table of all payments in the `transactions` ArrayList.
-        // The table should have columns for date, time, vendor, and amount.
+        // This should display the payments made
         ArrayList<Transaction> found = new ArrayList<>();
         for (Transaction transaction : transactions) {
 
@@ -256,7 +250,7 @@ public class FinancialTracker {
             }
         }
         if (found.isEmpty()) {
-            System.out.println("ERROR: No payments found!");
+            System.out.println("No payments found!");
         } else {
             for (Transaction transaction : found) {
                 System.out.println(transaction);
@@ -357,7 +351,7 @@ public class FinancialTracker {
             }
         }
         if (found.isEmpty()) {
-            System.out.println("ERROR: No transactions found with given vendor!");
+            System.out.println("No transactions found with given vendor!");
         } else {
             //    found.sort(Collections.reverseOrder());
             for (Transaction transaction : found) {
