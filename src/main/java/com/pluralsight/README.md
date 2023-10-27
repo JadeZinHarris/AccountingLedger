@@ -13,10 +13,10 @@ Most difficult part for me to change the colors. Like, just finding a purple pro
 
 𝕄𝕒𝕚𝕟 𝕄𝕖𝕟𝕦
 
-![Image1.png](C:\Users\Jadal\OneDrive\Desktop\pluarsight\Capstones\AccountingLedger\Screenshots\Image1.png)
+![](C:\Users\Jadal\OneDrive\Desktop\pluarsight\Capstones\AccountingLedger\Screenshots\Image1.png)
 
 𝓛𝓮𝓭𝓰𝓮𝓻
 
-![Image2.png](C:\Users\Jadal\OneDrive\Desktop\pluarsight\Capstones\AccountingLedger\Screenshots\Image2.png)
+![](C:\Users\Jadal\OneDrive\Desktop\pluarsight\Capstones\AccountingLedger\Screenshots\Image2.png)
 
-![img.png](img.png)
+
