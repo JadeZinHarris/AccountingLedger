@@ -30,7 +30,7 @@ public class FinancialTracker {
         while (running) {
             System.out.println("Welcome to TransactionApp");
             System.out.println("Choose an option:");
-            System.out.println("D) Add Deposit");
+            System.out.println("A) Add Deposit");
             System.out.println("P) Make Payment ");
             System.out.println("L) Ledger");
             System.out.println("X) Exit");
@@ -38,7 +38,7 @@ public class FinancialTracker {
             String input = scanner.nextLine().trim();
 
             switch (input.toUpperCase()) {
-                case "D":
+                case "A":
                     addDeposit(scanner);
                     break;
                 case "P":
@@ -122,7 +122,7 @@ public class FinancialTracker {
             double depositAmount = scanner.nextDouble();
             scanner.nextLine();
             if (depositAmount <= 0.01) {
-                System.out.println("ERROR: Deposit must be positive! Defaulting to $1...");
+                System.out.println(" Deposit must be positive!");
                 depositAmount = 1.0;
             }
             Transaction deposit = new Transaction(date, time, "Deposit", vendor, depositAmount);

@@ -10,6 +10,7 @@ When looking at reports you have several options
 
 
 Most difficult part for me was to make the reports. I was trying my hardest to figure it out.
+![](C:\Users\Jadal\OneDrive\Desktop\pluarsight\Capstones\AccountingLedger\image1.jpg)
 
 
 
@@ -19,8 +20,3 @@ Most difficult part for me was to make the reports. I was trying my hardest to f
 
 
 
-
-![img_4.png](img_4.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
