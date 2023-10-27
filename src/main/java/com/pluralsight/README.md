@@ -9,7 +9,7 @@ You can check all deposits,payments, and reports being made.
 When looking at reports you have several options
 
 
-Most difficult part for me was to make the reports. I was trying my hardest to figure it out.
+Most difficult part for me to change the colors. Like, just finding a purple properly was me trying to rewire my brain.
 
 𝕄𝕒𝕚𝕟 𝕄𝕖𝕟𝕦
 
@@ -19,4 +19,4 @@ Most difficult part for me was to make the reports. I was trying my hardest to f
 
 ![Image2.png](C:\Users\Jadal\OneDrive\Desktop\pluarsight\Capstones\AccountingLedger\Screenshots\Image2.png)
 
-
+![img.png](img.png)
