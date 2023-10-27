@@ -30,10 +30,10 @@ public class FinancialTracker {
         while (running) {
             System.out.println("Welcome to TransactionApp");
             System.out.println("Choose an option:");
-            System.out.println("A) Add Deposit");
-            System.out.println("P) Make Payment ");
-            System.out.println("L) Ledger");
-            System.out.println("X) Exit");
+            System.out.println(Colors.J_PURPLE + "A) Add Deposit");
+            System.out.println(Colors.J_PURPLE + "P) Make Payment ");
+            System.out.println(Colors.J_PURPLE +"L) Ledger");
+            System.out.println(Colors.J_PURPLE +"X) Exit");
 
             String input = scanner.nextLine().trim();
 
@@ -184,11 +184,11 @@ public class FinancialTracker {
         while (running) {
             System.out.println("Ledger");
             System.out.println("Choose an option:");
-            System.out.println("A) All");
-            System.out.println("D) Deposits");
-            System.out.println("P) Payments");
-            System.out.println("R) Reports");
-            System.out.println("H) Home");
+            System.out.println(Colors.J_Green + "A) All");
+            System.out.println(Colors.J_Green +"D) Deposits");
+            System.out.println(Colors.J_Green +"P) Payments");
+            System.out.println(Colors.J_Green +"R) Reports");
+            System.out.println(Colors.J_Green +"H) Home");
 
             String input = scanner.nextLine().trim();
 

@@ -10,8 +10,13 @@ When looking at reports you have several options
 
 
 Most difficult part for me was to make the reports. I was trying my hardest to figure it out.
-![](../../../../../Screenshots/image1.gif)
 
-![](../../../../../Screenshots/image2.gif)
+𝕄𝕒𝕚𝕟 𝕄𝕖𝕟𝕦
 
-![](../../../../../Screenshots/image3.gif)![](../../../../../Screenshots/image4.gif)
+![Image1.png](C:\Users\Jadal\OneDrive\Desktop\pluarsight\Capstones\AccountingLedger\Screenshots\Image1.png)
+
+𝓛𝓮𝓭𝓰𝓮𝓻
+
+![Image2.png](C:\Users\Jadal\OneDrive\Desktop\pluarsight\Capstones\AccountingLedger\Screenshots\Image2.png)
+
+
